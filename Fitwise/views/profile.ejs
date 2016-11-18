@@ -1,0 +1,86 @@
+<!-- views/profile.ejs -->
+<!doctype html>
+<html>
+<head>
+	<title>Fitwise</title>
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+	<style>
+		body 		{ padding-top:80px; word-wrap:break-word; }
+	</style>
+</head>
+<body>
+<div class="container">
+
+	<div class="page-header text-left">
+		<h1><span class="fa"></span> Welcom, <%= user.username %></h1>
+		<a href="/logout" class="btn btn-default btn-sm">Logout</a>
+	</div>
+
+	<div class="row">
+
+		
+		<div class="col-sm-6">
+			<div class="well">
+				<h3><span class="fa fa-user"></span> Personal Info </h3>
+
+					<p>
+						<strong>username</strong>: <%= user.username %><br>
+						<strong>emai</strong>: <%= user.email %><br>
+						
+						<strong>First Name</strong>: <%= user.fName %><br> 
+						
+						
+						<strong>Last Name</strong>: <%= user.lName %><br> 
+						
+						<strong>Weight</strong>: <%= user.weight %><br> 
+						
+						<strong>Gender</strong>: <%= user.gender %><br> 
+						
+						<a href="/editprofile" class="btn btn-default btn-sm">Edit</a>
+					</p>
+
+			</div>
+		</div>
+
+		<div class="col-sm-6">
+			<div class="well">
+				<h3><span class="fa "></span> Routines </h3>						
+						<a href="/addroutine" class="btn btn-default btn-sm">Add</a>
+						<br> ---------------------------------------------------------
+						<form action="/deleteroutine" method="post">
+        				
+						<button type="submit" class="btn btn-default btn-sm">Delete</button>
+						
+						<% if(routines.constructor === Array)
+							for(var i=0 ; i < routines.length ; i++) { 
+							if(i == 0){ %>
+						 <p> <input type="checkbox" name="routineName" value="<%= routines[i].name %>"> <%= routines[i].name %> : </p>
+						 <ul>
+						 <li><%= routines[i].machineName %></li>
+						 <% } 
+						  else { 
+						  		if (routines[i].name == routines[i-1].name) { %>
+						  			<li><%= routines[i].machineName %></li>
+						  	<%	}
+						  		else { %>
+						  		</ul>
+						  			<p> <input type="checkbox" name="routineName" value="<%= routines[i].name %>"> <%= routines[i].name %> : </p>
+						  			<ul>
+						 			<li><%= routines[i].machineName %></li>
+						  		<% }
+						  	 } 
+						 } %>
+						</ul>
+						
+					</p>
+
+			</div>
+			</form>
+		</div>
+
+	</div>
+
+</div>
+</body>
+</html>

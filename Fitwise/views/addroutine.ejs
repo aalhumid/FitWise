@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+	<title>Fitwise Add Routine</title>
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+	<style>
+		body 		{ padding-top:80px; word-wrap:break-word; }
+	</style>
+</head>
+<body>
+<div class="container">
+
+	<div class="row">
+
+		
+		<div class="col-sm-6">
+			<div class="well">
+				<h3><span class="fa fa-user"></span> Add Routine </h3>
+
+					<form action="/addroutine" method="post">
+
+		<div class="form-group">
+			<label>Routine Name</label>
+			<input type="text" class="form-control" name="routineName" > <br>
+
+			<label>Machines</label> <br>
+			<% for(var i=0 ; i < machines.length ; i++) { %>
+				<input type="checkbox" name="machineName" value="<%= machines[i].name %>"> <%= machines[i].name %><br>
+			<% } %>
+	
+		</div>
+		
+
+		<button type="submit" class="btn btn-default btn-sm">Save</button>
+		<a href="/profile" class="btn btn-default btn-sm">Cancel</a>
+	</form>
+			</div>
+		</div>
+
+	</div>
+
+</div>
+</body>
+</html>

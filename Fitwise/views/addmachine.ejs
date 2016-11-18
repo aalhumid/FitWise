@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+    <title>Fitwise Add Machine</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/sandstone/bootstrap.min.css"> <!-- load bootstrap css -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
+    <style>
+        body        { padding-top:80px; }
+    </style>
+</head>
+<body>
+    <div class="container" >
+        <div class="col-sm-6 col-sm-offset-3">
+            <form action="/addmachine" method="post">
+        <div class="form-group">
+            <label>Machine Name</label>
+            <input type="text" class="form-control" name="name" >
+        </div>
+        <div class="form-group">
+            <label>QRCOde</label>
+            <input type="text" class="form-control" name="code" >
+        </div>
+        <div class="form-group">
+            <label>Vide Link</label>
+            <input type="text" class="form-control" name="vLink" >
+        </div>
+        <div class="form-group">
+            <label>Picture Link</label>
+            <input type="text" class="form-control" name="pLink" >
+        </div>
+
+        <button type="submit" class="btn btn-default btn-sm">Save</button>
+        <a href="/trainerprofile" class="btn btn-default btn-sm">Cancel</a>
+    </form>
+        </div>
+    </div>
+</body>
+</html>
